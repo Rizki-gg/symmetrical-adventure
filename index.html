@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Click Link</title>
+    <style>
+        /* CSS Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #303030;
+        }
+        
+        .profile-container {
+            text-align: center;
+            background-color: #FFFFFF;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .profile-container:hover {
+            transform: translateY(-5px);
+        }
+        
+        .profile-photo {
+            width: 260px;
+            height: 260px;
+            border-radius: 8%;
+            object-fit: cover;
+            border: 3px solid #3498db;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+        }
+        
+        .profile-name {
+            margin-top: 15px;
+            font-size: 24px;
+            color: #000000;
+        }
+        
+        .profile-title {
+            color: #000000;
+            margin-bottom: 20px;
+        }
+        
+        .profile-link {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .profile-link:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        
+        .modal-content {
+            background-color: #FFFFFF;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .close {
+            position: absolute;
+            right: 15px;
+            top: 10px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <img src="https://i.pinimg.com/736x/85/40/7e/85407e7ddbabb41eaa9fd76651693266.jpg" alt="Profile Photo" class="profile-photo" id="profilePhoto">
+        <h2 class="profile-name">アマンダ</h2>
+        <p class="profile-title">최신 바이럴 미녀 2026</p>
+        <a href="https://t.me/Sarahmati_bot" class="profile-link" target="_blank">リンクをクリック</a>
+    </div>
+
+    <!-- Modal -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>こんにちは世界</h2>
+            <img src="https://i.pinimg.com/736x/52/6a/3a/526a3ae9ed131d787b952b77340c4517.jpg" alt="Large Profile Photo" style="width: 100%; max-width: 300px; border-radius: 10px; margin: 15px 0;">
+            <p>Name : Paisss</p>
+            <p>Occupation : Kerjanya Tidak</p>
+            <p>Email : paisss@gmail.com</p>
+            <a href="https://wa.me/qr/J5AJJPRJ3YVHP1" class="profile-link" target="_blank">愛してます</a 
+        </div>
+    </div>
+
+    <script>
+        // JavaScript functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get elements
+            const profilePhoto = document.getElementById('profilePhoto');
+            const modal = document.getElementById('profileModal');
+            const closeBtn = document.querySelector('.close');
+            
+            // When user clicks the profile photo, open modal
+            profilePhoto.onclick = function() {
+                modal.style.display = "block";
+            }
+            
+            // When user clicks on (x), close the modal
+            closeBtn.onclick = function() {
+                modal.style.display = "none";
+            }
+            
+            // When user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+            
+            // You can also add more interactive features here
+            // For example, change profile photo on hover
+            const originalSrc = profilePhoto.src;
+            const hoverSrc = "https://via.placeholder.com/150/3498db/ffffff"; // Blue version
+            
+            profilePhoto.addEventListener('mouseenter', function() {
+                this.src = hoverSrc;
+            });
+            
+            profilePhoto.addEventListener('mouseleave', function() {
+                this.src = originalSrc;
+            });
+        });
+    </script>
+</body>
+</html>
